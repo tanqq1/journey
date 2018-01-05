@@ -1,0 +1,64 @@
+#container{
+	width:300px;
+	height:180px;
+}
+
+/* 显示地址的框的样式的设置 */
+.frame{
+	background-color: #f3f3f5;
+	border-radius:4px;
+	float:left;
+	width:95px;
+	margin-left:4%;
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border:#D8D8D8 solid 1px;
+	line-height: 25px;
+}
+.frame1{
+	background-color: #f3f3f5;
+	border-radius:4px;
+	float:left;
+	width:95px;
+	margin-left:4%;
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border:#D8D8D8 solid 1px;
+	line-height: 25px;
+}
+
+#navi1{
+	clear:both;
+	background-color: white;
+}
+
+#navi2{
+	clear:both;
+	background-color: white;
+	width:100%;
+	max-height:74px;
+	overflow-y:hidden;
+}
+
+#navi3{
+	clear:both;
+	background-color: white;
+	height:260px;
+}
+
+#navi4{
+	background-color:white;
+	height:200px;
+	width:100%;
+}
+.citySpan{
+	height:30px;
+	border-bottom:#B7B8B7 1px solid;
+	display:block;
+	text-indent:10px;
+	margin-top:auto;
+	font-size:20px;
+	line-height:40px;
+}
