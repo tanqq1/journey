@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>props的测试</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="props">
+
+    <Child message="父组件的message,我把他的内容重新定义了，但是父组件不会发生改变哦，因为没有绑定，哈哈！！"></Child>
+    <hr />
+    <input v-model="message"/>
+    <Child :message='message'></Child>
+    <child v-bind="todos"></child>
+</div>
+<script>
+    Vue.component('Child',{
+        props: ['message','todos'],
+        template: '<span>{{ message }}</span>'
+    });
+    var vm = new Vue({
+        el: '#props',
+        data: {
+            message: 'prop的测试',
+            todos: {
+                text: 'hahah',
+                isComplite: true
+            }
+        }
+    });
+</script>
+</body>
+</html>

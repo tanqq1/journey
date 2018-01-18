@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue test</title>
+    <style>
+        td{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <tr :class="{display: none;}">{{html1}}</tr><br />
+        <tr v-html="html1"></tr><br />
+        <tr v-once>这个会发生改变吗：{{a}}</tr><br />
+        <tr>这个呢：{{a}}</tr><br />
+
+        <p>{{html1}}</p>
+        <p v-html="html1"></p>
+        <div v-once>这个会发生改变吗：{{a}}</div>
+        <div>这个呢：{{a}}</div>
+
+        <!--<a v-bind:href="#"></a>
+        <a :href="#"></a>-->
+
+        <input type="button" value="点击试试啦" v-on:click="clc"></input>
+        <input type="button" value="在点击试试" @click="clc"></input>
+
+        <div>{{vmReverse}}</div>
+        <p>{{ vmMessage }}</p>
+
+        <hr />
+        <div v-if="Math.random()<0.3">随机数小于0.3,所以我才会显示了呢</div>
+        <div v-else-if="Math.random()>=0.3 && Math.random()<0.6">0.3~0.6之间了。。到我显示了？</div>
+        <div v-else>随机数大于0.6哈哈，你们都不出来那我自己先出来了啊。。。</div>
+
+        <hr />
+        <div v-for="(item,index) in items" v-if="index == 3">
+            {{item.trr.a}}
+        </div>
+        <hr />
+        <div v-for="(item,index) of items">
+            <div v-if="index == 3">{{item.trr.a}}</div>
+            {{item.trr}}
+        </div>
+
+        <hr />
+        <h3>对象的v-for</h3>
+        <div v-for="obj in objs">{{obj}}</div>
+
+        <hr />
+        <div v-for="(value,key) in objs">{{key}}:{{value}}</div>
+
+        <hr />
+        <div v-for="(value,key,index) in objs">
+            我的索引值是第{{index}}个-----{{key}}:{{value}}
+        </div>
+        <div v-for="item in items" :key="item.id"></div>
+
+        <hr />
+        <br />
+        <br />
+        <div v-for="n in evenNumbers">{{ n }}</div>
+        <hr />
+        <div v-for="a in 4">ahhah</div>
+        <hr />
+        <div v-for="a in objs" v-if="a.length"></div>
+
+        <hr />
+        <button @click="warn('xsgdd',$event)">submit</button>
+
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                a: 10,
+                vmReverse: 'hello,Vue.js',
+                html1: "<b>这是文本格式还是html格式？</b>",
+                objs: {
+                    zero: '偷偷告诉你，我是一个对象哦！！',
+                    one: 'haha',
+                    two: 'xixi',
+                    three: '我是谁，我来自哪里？'
+                },
+                items: [
+                    {trr: 'Monday'},
+                    {trr:'Tuesday'},
+                    {trr:'Wen'},
+                    {trr: {
+                            a: 'ss',
+                            b: 'dd',
+                            c: 'cc'
+                        }}
+                ]
+            },
+
+            computed: {
+                vmMessage: function(){
+                   return this.vmReverse.split('').reverse().join('');
+                },
+                evenNumbers: function () {
+                    return this.items.sort()
+                }
+            },
+            methods: {
+                clc: function(){
+                    console.log('hahah');
+                },
+                warn: function(m,event){
+                    if (event) event.preventDefault();
+                    alert(m)
+                }
+            }
+        });
+        Vue.set(vm.objs,'four','新添加的属性');
+        vm.$set(vm.objs,'five','另一个新添加的属性');
+        vm.objs = Object.assign({},vm.objs,{
+            'aa': 20,
+            'ss': 90
+        })
+    </script>
+</body>
+</html>

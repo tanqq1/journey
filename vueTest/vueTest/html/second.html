@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue--second</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <!--<input  type="text" value="hahaha" placeholder="edit me" v-model="message"/>
+        <p>{{ message }}</p>
+        <textarea v-model="message1" placeholder="wait to edit"></textarea>
+        <p>{{ message1 }}</p>
+        <hr />
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+        <label for="mike">Mike</label>
+        <br />
+        <span>{{ checkedNames }}</span>
+        <hr />
+        <input type="radio" id="one" value="One" v-model="picked">
+        <label for="one">One</label>
+        <br>
+        <input type="radio" id="two" value="Two" v-model="picked">
+        <label for="two">Two</label>
+        <br>
+        <span>Picked: {{ picked }}</span>
+        <hr />
+        <select v-model="selected" multiple>
+            <option disabled value="">请选择</option>
+            <option value="hah">A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <span>Selected: {{ selected }}</span>-->
+        <my-test parent-msg="111"></my-test>
+
+
+    </div>
+    <!--test实例模板-->
+    <div id="test">
+        <!--<my-last></my-last>
+        <my-test></my-test>-->
+        <my-second></my-second>
+        <my-last></my-last>
+        <table>
+            <tr>
+                <td>hahah</td>
+                <td is="my-second"></td>
+                <my-second></my-second>
+            </tr>
+        </table>
+
+    </div>
+<script>
+
+    Vue.component('my-test',{
+        props: ['parentMsg'],
+        template: '<h2>{{ parentMsg }}</h2>'
+    });
+   let v = new Vue({
+        el: '#app',
+        data: {
+            message: '',
+            message1: 'hah',
+            checkedNames: [],
+            picked: '',
+            selected: [],
+            parentMsg: '我是父组件的数据'
+        }
+    });
+
+    Vue.component('my-last',{
+        template: '<h3>cslanlv</h3>'
+    });
+    let Child = {
+        template: '<div>我只是一个局部注册的组件啦</div>'
+    };
+    let vm = new Vue({
+        el: '#test',
+        components: {
+            'my-second': Child,
+        }
+    });
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>props的测试</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="props">
+    <!--<input v-model="message" />-->
+    <Child :message='message'></Child>
+</div>
+<script>
+    Vue.component('Child',{
+        props: ['message'],
+        template: '<span>{{ message }}</span>'
+    });
+    var vm = new Vue({
+        el: '#props',
+        data: {
+            message: 'prop的测试'
+        }
+    });
+
+</script>
+</body>
+</html>
