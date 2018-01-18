@@ -45,7 +45,8 @@
 #navi3{
 	clear:both;
 	background-color: white;
-	height:260px;
+	min-height:260px;
+	overflow-y: auto;
 }
 
 #navi4{

@@ -10,6 +10,7 @@
 		<script src="../js/summer.js" ></script>		
 		<script src="../js/jquery.min.js" ></script>
 		<script src="../js/Frameworks/iuapmobile.frameworks.ui.js" ></script>
+		<script src="../js/cvi_busy_lib.js"></script>
 		<script src="../js/homePage.js" ></script>
 	</head>
 	<body>
@@ -53,7 +54,7 @@
                     </div>
 					<div class="header-right"><a href="javascript:void(0)" class="ti-comment-alt " ></a></div>
 				</div>
-			
+				<div id="loadingDiv" style="z-index:999;background-color: white" >
 			
 		<!--content....-->
 			<div class="content">
@@ -61,48 +62,49 @@
 				<div class="navi1">
 					<div style="height:30px;width:100%;">
 						<div style="float:left;font-size:14px;margin-left:10px;">玩转当地</div>
-						<a href="position.html"><div class="navi1_right">
+						<a href="position.html">
+							<div class="navi1_right">
 							<img  src="../img/pos.jpg" width="25%"/>
 							<!-- 位置显示问题 -->
 							<span id="place">北京</span>				
-						</div>
-					</div></a>
-					
+							</div>
+						</a>
+					</div>
 					<div>
 						<div style="float:left;width:18%;margin-left:2%;">
         					<a href="#" >
-        						<img class="navi1_img " src="../img/mt_mv.png" width=40  alt="">
+        						<img class="navi1_img " src="../img/mt_mv.png" width="40px" alt="景点玩乐">
         						<div style="font-size:12px;margin-top:5px;padding-left:3px;" >景点.玩乐</div>
         					</a>
         				</div>
         				<div style="float:left;width:20%;">
         					<a href="#" >
-        						<img class="navi1_img " src="../img/mt_you.png" width=40  alt="">
+        						<img class="navi1_img " src="../img/mt_you.png" width=40px alt="周边游">
         						<div style="font-size:12px;margin-top:5px;padding-left:3px;" >周边游</div>
         					</a>
         				</div>
         				<div style="float:left;width:20%;">
         					<a href="#" >
-        						<img class="navi1_img " src="../img/mt_food.png" width=40  alt="">
+        						<img class="navi1_img " src="../img/mt_food.png" width=40px alt="美食">
         						<div style="font-size:12px;margin-top:5px;padding-left:4px;" >美食</div>
         					</a>
         				</div>
         				<div style="float:left;width:20%;">
         					<a href="#" >
-        						<img  class="navi1_img " src="../img/mt_new.png" width=40  alt="">
+        						<img  class="navi1_img " src="../img/mt_new.png" width=40px alt="问答">
         						<div style="font-size:12px;margin-top:5px;padding-left:8px;" >问答</div>
         					</a>
         				</div>
         				<div style="float:left;width:15%;margin-right:5%;">
         					<a href="#" >
-        						<img class="navi1_img " src="../img/mt_money.png" width=40  alt="">
+        						<img class="navi1_img " src="../img/mt_money.png" width=40 alt="当地攻略">
         						<div style="font-size:12px;margin-top:5px;" >当地攻略</div>
         					</a>
         				</div>
 					</div>
 				</div>
 			<!--表格导航框-->
-				<div class="navi2">
+				<div class="navi2" name="box">
 					<table class="navi2_table" border="2px">
 						<tr>
 							<td class="row" rowspan="2"  style="background-color:#f9271c;"><a href="#" style="color:white;">酒店</a></td>
@@ -209,28 +211,31 @@
 				</div>
 			<!--特价机票条,待实现.....-->
 				<div class="navi5">
-					<a href="javascript:void(0)"><table width="100%" background-color="red">
-						<tr>
-							<td width="30%">&nbsp;</td>
-							<td width="50%">特价机票&nbsp;&nbsp;supper</td>
-							<td width="20%" ><a href="#" style="text-align="right"">更多></a></td>
-						</tr>
-					</table></a>
-					<div><a href="#">
-						<div class="navi5_div_b">上海&nbsp;--北京
-							<div>2017-12-30</div>
-							<div style="background-color:#e2dede;height:20px;color:#f5b744;font-size:16px;">￥250起</div>
-						</div>
-					</a></div>
-					<a href="#">
-						<div class="navi5_div_b">上海&nbsp;--深圳
-							<div>2017-10-31</div>
-							<div style="background-color:#e2dede;height:20px;color:#f5b744;font-size:16px">￥440起</div>
-						</div>			
+					<a href="javascript:void(0)">
+						<table width="100%" background-color="red">
+							<tr>
+								<td width="30%">&nbsp;</td>
+								<td width="50%">特价机票&nbsp;&nbsp;supper</td>
+								<td width="20%" ><a href="#" style="text-align:right">更多></a></td>
+							</tr>
+						</table>
 					</a>
-					<div style="background-color:#b5b5e4; margin:5px;float:left;width:40%;height:40px;">e</div>
-					<div style="background-color:#b5b5e4;margin:5px;float:left;width:40%;height:40px;">tr</div>
-				
+					<div class="sale_air">
+						<a href="#">
+							<span class="navi5_div_b">上海&nbsp;--北京
+								<p>2017-12-30</p>
+								<p style="background-color:#e2dede;height:20px;color:#f5b744;font-size:16px;">￥250起</p>
+							</span>
+						</a>
+						<a href="#">
+							<span class="navi5_div_b">上海&nbsp;--深圳
+								<p>2017-10-31</p>
+								<p style="background-color:#e2dede;height:20px;color:#f5b744;font-size:16px">￥440起</p>
+							</span>
+						</a>
+						<span class="navi5_span">e</span>
+						<span class="navi5_span">tr</span>
+					</div>
 				</div>
 			<!--热销排行条,已实现，通过设置里面的div宽度宽于外面的宽度，使里面的将外面的撑起来，
 				并确定好里面所需的总宽度，避免图片栏跑到下一栏。
@@ -240,20 +245,20 @@
 						<tr>
 							<td width="30%">&nbsp;</td>
 							<td width="50%">热销排行&nbsp;&nbsp;hot</td>
-							<td width="20%" ><a href="#" style="text-align="right"">更多></a></td>
+							<td width="20%" ><a href="#" style="text-align:right">更多></a></td>
 						</tr>
 					</table>
 				<!--图片条，实现功能：左划可显示更多-->
 					<div  style="max-width:100%;height:auto;overflow-x: auto;">
-					<div id="maxWidth" >
-						<div class="navi6_slide"><img src="../img/sights1.jpg" width="100%" height="60px;" /></div>
-						<div class="navi6_slide"><img src="../img/sight2.jpg" width="100%" height="60px;" /></div>
-						<div class="navi6_slide"><img src="../img/sight3.jpg" width="100%" height="60px;" /></div>
-						<div class="navi6_slide"><img src="../img/sight4.jpg" width="100%" height="60px;" /></div>
-						<div class="navi6_slide"><img src="../img/sight5.jpg" width="100%" height="60px;" /></div>
-						<div class="navi6_slide"><img src="../img/sight6.jpg" width="100%" height="60px;" /></div>
-						<div class="navi6_slide"><img src="../img/sight7.jpg" width="100%" height="60px;" /></div>
-					</div>
+						<div id="maxWidth" >
+							<div class="navi6_slide"><img src="../img/sights1.jpg" width="100%" height="60px;" /></div>
+							<div class="navi6_slide"><img src="../img/sight2.jpg" width="100%" height="60px;" /></div>
+							<div class="navi6_slide"><img src="../img/sight3.jpg" width="100%" height="60px;" /></div>
+							<div class="navi6_slide"><img src="../img/sight4.jpg" width="100%" height="60px;" /></div>
+							<div class="navi6_slide"><img src="../img/sight5.jpg" width="100%" height="60px;" /></div>
+							<div class="navi6_slide"><img src="../img/sight6.jpg" width="100%" height="60px;" /></div>
+							<div class="navi6_slide"><img src="../img/sight7.jpg" width="100%" height="60px;" /></div>
+						</div>
 					</div>
 				</div>
 			<!--热门活动条，待实现：更换背景图片 -->
@@ -262,7 +267,7 @@
 						<tr>
 							<td width="30%">&nbsp;</td>
 							<td width="50%">热门活动&nbsp;&nbsp;event</td>
-							<td width="40%" ><a href="#" style="text-align="right"">更多></a></td>
+							<td width="40%" ><a href="#" style="text-align:right">更多></a></td>
 						</tr>
 					</table></a>
 				<!--图片条-->

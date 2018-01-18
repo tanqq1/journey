@@ -10,7 +10,9 @@
 		
 		<script src="../js/jquery.js"></script>
 		<script src="../js/jquery.min.js" ></script>
+		<script src="../js/jquery/jquery-ui.js"></script>
 		<script src="../js/airTicket.js"></script>
+		<script src="../js/vue.js"></script>
 	</head>
 	<body>
 	<!-- 遮罩层 -->
@@ -54,19 +56,22 @@
 <!-- 单程显示框 -->
 			<div class="navi2">
 				<!--机票起始地选择，地址选择页面及其功能尚未完成-->
-				<div class="navi2_starting">
-					<div onclick="window.location.href='javascript:void(0)';">北京1</div>
-					<hr style="opacity:0.4;"/>
+				<div class="navi2_box">
+					<div class="navi2_starting">
+						<div onclick="window.location.href='javascript:void(0)';">北京1</div>
+						<hr style="opacity:0.4;"/>
+					</div>
+					<img src="../img/image1.jpg" class="navi2_img" />
+					<div class="navi2_ending">
+						<div onclick="window.location.href='javascript:void(0)';">上海</div>
+						<hr style="opacity:0.4;" />
+					</div>
 				</div>
-				<div style="float:left;"><img src="../img/image1.jpg" class="navi2_img" /></div>
-				<div id="navi2_ending">
-					<div onclick="window.location.href='javascript:void(0)';">上海</div>
-					<hr style="opacity:0.4;" />
-				</div>
+
 			<!--日期选择
 				待完成功能：日期选择,利用date函数,确定当前日期-->
 				<div class="navi2_date">
-					<div class="dataNow1" onclick="window.location.href='main.html';"></div>
+					<div class="dataNow1"></div>
 					<hr style="opacity:0.4;" />
 				</div>
 			<!--机舱类型选择-->
@@ -90,14 +95,16 @@
 <!-- 往返显示框 -->
 			<div class="navi2" style="display:none">
 				<!--机票起始地选择，地址选择页面及其功能尚未完成-->
-				<div class="navi2_starting">
-					<div onclick="window.location.href='javascript:void(0)';">北京2</div>
-					<hr style="opacity:0.4;"/>
-				</div>
-				<div style="float:left;"><img src="../img/image1.jpg" class="navi2_img" /></div>
-				<div id="navi2_ending">
-					<div onclick="window.location.href='javascript:void(0)';">上海</div>
-					<hr style="opacity:0.4;" />
+				<div class="navi2_box">
+					<div class="navi2_starting">
+						<div onclick="window.location.href='javascript:void(0)';">北京2</div>
+						<hr style="opacity:0.4;"/>
+					</div>
+					<img src="../img/image1.jpg" class="navi2_img" />
+					<div class="navi2_ending">
+						<div onclick="window.location.href='javascript:void(0)';">上海</div>
+						<hr style="opacity:0.4;" />
+					</div>
 				</div>
 			<!--日期选择,待完成功能：日期选择-->
 				<div class="navi2_date">
@@ -123,14 +130,16 @@
 <!-- 多程显示框 -->
 			<div class="navi2" style="display:none">
 			<!--机票起始地选择，地址选择页面及其功能尚未完成-->
-				<div class="navi2_starting">
-					<div onclick="window.location.href='javascript:void(0)';">北京3</div>
-					<hr style="opacity:0.4;"/>
-				</div>
-				<div style="float:left;"><img src="../img/image1.jpg" class="navi2_img" onclick="change();" /></div>
-				<div id="navi2_ending">
-					<div onclick="window.location.href='javascript:void(0)';">上海</div>
-					<hr style="opacity:0.4;" />
+				<div class="navi2_box">
+					<div class="navi2_starting">
+						<div onclick="window.location.href='javascript:void(0)';">北京3</div>
+						<hr style="opacity:0.4;"/>
+					</div>
+					<img src="../img/image1.jpg" class="navi2_img" />
+					<div class="navi2_ending">
+						<div onclick="window.location.href='javascript:void(0)';">上海</div>
+						<hr style="opacity:0.4;" />
+					</div>
 				</div>
 			<!--日期选择,待完成功能：日期选择-->
 				<div class="navi2_date">
@@ -144,11 +153,11 @@
 				</div>
 			<!--婴儿儿童选座-->
 				<div class="navi2_passageType" >
-					<input class="a3" type="checkbox" />携带儿童
+					<input class="a1" type="checkbox" />携带儿童
 					<hr style="opacity:0.4;" />
 				</div>
 				<div class="navi2_passageType" >
-					<input class="a3" type="checkbox" />携带婴儿
+					<input class="a1" type="checkbox" />携带婴儿
 					<hr style="opacity:0.4;" />
 				</div>
 				<div class="block3" onclick="window.location.href='#'">儿童婴儿预订说明</div>
@@ -179,13 +188,13 @@
 					<div style="width:100%;background-color:#99ccea;height:2px;"></div>
 					<div>
 						<label class="choose1">
-							<input id="" type="radio" value="" style="opacity: 0;" checked />
+							<input id="dd1" type="radio" value="" style="opacity: 0;" checked />
 							<span class="um-icon-check" style="float:right;margin-right:10%;margin-top:3%;display:none"></span>
 							<span style="float:left;margin-left:10%;font-size: 14px">经济舱</span>
 						</label>
 						<div style="height:1px;width:100%;background-color:rgba(175,160,160,0.4)"></div>
 						<label class="choose2">
-							<input id="" type="radio" value="" style="opacity: 0;" />
+							<input id="dd2" type="radio" value="" style="opacity: 0;" />
 							<span class="um-icon-check" style="float:right;margin-right:10%;margin-top:5%;display:none"></span>
 							<span style="float:left;margin-left:10%;font-size:14px">公务舱/头等舱</span>
 						</label>

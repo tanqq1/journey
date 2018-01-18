@@ -83,32 +83,33 @@ a:visited {
 	height:55px;
 	margin-top:-15px;
 }
-.navi1 a:visited{
+/*.navi1 a:visited{
 	background
-}
+}*/
 
 .navi2{
 	background-color:white;
 	height:300px;
 }
-
-.navi2_starting{
-	float:left;
-	width:35%;
-	margin:10px 5%;
-	text-align:left;
-	
+.navi2_box{
+	display: flex;
+	flex-direction: row;
 }
-#navi2_ending{
-	float:right;
-	width:35%;
+.navi2_starting{
 	margin:10px 5%;
-	text-align:right;
+	text-align:center;
+	flex: 3;
+}
+.navi2_ending{
+	margin:10px 5%;
+	text-align:center;
+	flex: 3;
 }
 .navi2_img{
+	flex: 1;
 	border-radius:50%;
-	width:30px;
-	height:auto;
+	width:10%;
+	height: 10%;
 	margin:10px 5%;
 }
 .navi2_date{

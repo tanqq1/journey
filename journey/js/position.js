@@ -1,7 +1,7 @@
 
 window.onload=function(){
-	var historys = [];
-			var vm = new Vue({
+	let historys = [];
+			let vm = new Vue({
   				el: '#navi',
  				data: {
  					l : '',
@@ -17,10 +17,10 @@ window.onload=function(){
  			 },
  			 	methods: {
  			 		change: function(k){
- 			 			var frame = this.citys[k].text;
+ 			 			let frame = this.citys[k].text;
  			 			this.l = this.historys.length+1;
- 			 			for(var i = 0;i<this.historys.length;i++){
- 			 				if(this.historys[i]==frame){
+ 			 			for(let i = 0;i<this.historys.length;i++){
+ 			 				if(this.historys[i]===frame){
  			 					this.historys.splice(i,1);
  			 				}
  			 			}
@@ -29,19 +29,19 @@ window.onload=function(){
  			 			 
  			 			 	this.historys = this.historys.slice(0,6)
  			 			 }
- 			 			 localStorage.setItem("historyList",JSON.stringify(this.historys))
- 			 			 localStorage.setItem("selectCity",frame)
+ 			 			 localStorage.setItem("historyList",JSON.stringify(this.historys));
+ 			 			 localStorage.setItem("selectCity",frame);
  			 			 document.location.href = 'homePage.html';
  			 			// document.getElementById('place').innerHTML ='' ;
  			 		} ,
  			 		change1: function(k){
- 			 			var frame1 = this.historys[k];
- 			 			if(k!=0){
+ 			 			let frame1 = this.historys[k];
+ 			 			if(k!==0){
  			 				this.historys[k] = this.historys[0];
  			 				this.historys[0] = frame1;
  			 			}
- 			 			 localStorage.setItem("historyList",JSON.stringify(this.historys))
- 			 			 localStorage.setItem("selectCity",frame1)
+ 			 			 localStorage.setItem("historyList",JSON.stringify(this.historys));
+ 			 			 localStorage.setItem("selectCity",frame1);
  			 			 document.location.href = 'homePage.html';
  			 		}
  			 	},
@@ -50,7 +50,7 @@ window.onload=function(){
  			 },
 		});	
 
-		}	
+		};
 		
 
 

@@ -7,7 +7,6 @@
 		<link rel="stylesheet" href="../css/position.css">		
 		<script type="text/javascript" src="../js/vue.js"></script>
 		<script src="../js/position.js" ></script>
-		<script src="../js/worldPlace.js"></script>
 		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=cc943cd91751836ffd4a3584a719d3ac"></script>
 	</head>
 	<body style="background-color: #e2e0e2;height:100%;">
@@ -20,14 +19,14 @@
 			<!-- 历史选择 -->
 			<div id="his" style="clear:both;" v-show="l">历史选择</div>
 			<div id="navi2">
-				<div class = "frame1" v-for="(history,m) in historys" v-on:click="change1(m)">{{ history }}</div>
+				<div class = "frame1" v-for="(history,m) in historys" @click="change1(m)">{{ history }}</div>
 			</div>
 			<!-- 热门城市 -->
 			<!--vue.js的注意事项：渲染语句不能与绑定的id同级放置-->
 			<div style="clear:both;">热门城市</div>
 			<div id="navi3" >						
 					<a>
-						 <div class="frame" v-for="(city,k) in citys" v-on:click="change(k)">{{ city.text }}</div>
+						 <div class="frame" v-for="(city,k) in citys" @click="change(k)">{{ city.text }}</div>
 						
 					</a>		
 			</div>
@@ -45,17 +44,16 @@
 		</div>
 		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=cc943cd91751836ffd4a3584a719d3ac"></script>
 		<script>
-			var map = new AMap.Map('container');
+			//显示地图的容器
+			let map = new AMap.Map('container');
+			//添加地图插件
 			map.plugin('AMap.CitySearch',function(){
-				var city = new AMap.CitySearch();
+				let city = new AMap.CitySearch();
 				city.getLocalCity();
 				AMap.event.addListener(city,'complete',function(data){
 					document.getElementById('currentPosition').innerHTML = data.city;
 				});
-				
-				
 			});
-
 		</script>	
 	</body>
 </html>
